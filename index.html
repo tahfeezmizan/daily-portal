@@ -16,6 +16,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+    <!-- font awesome icon cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- tailwind custom color -->
     <script>
         tailwind.config = {
@@ -36,8 +41,30 @@
     </style>
 </head>
 
-<body class="font-manrope" <header>
+<body class="font-manrope">
+    <!-- header section  -->
+    <header class="container mx-auto">
+        <div class="hero min-h-screen items-center justify-center">
+            <div class="hero-content flex-col lg:flex-row gap-7">
+                <div>
+                    <h1 class="text-7xl font-extrabold m-0 ">It's good <br> tea time at The <br> Tea House</h1>
+                    <p class="py-6 m-0 text-slate-600">Tea and Botanical Solutions Supplier Give Optimum <br>Satisfaction To Your Taste Buds.
+                    </p>
+                    <button class="btn btn-primary text-white text-xl">Explore More</button>
+                </div>
+                <div class="">
+                    <img src="images/banner.png" class="max-w-sm" />
 
+                    <div class="flex items-center w-64 px-6 py-5 bg-white drop-shadow-xl rounded-xl">
+                        <i class="text-3xl fa-solid fa-star text-amber-300"></i>
+                        <div class="ml-3">
+                            <h3 class="text-3xl font-extrabold">5.00</h3>
+                            <p class="text-base font-semibold">Trust Pilot Ratings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <main>
 
