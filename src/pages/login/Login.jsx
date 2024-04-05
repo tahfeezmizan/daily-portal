@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../Shred/Navbar/Navbar';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
 
+    const {singIn} = useContext(AuthContext);
+ 
     const handleLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password)
+        console.log(email, password);
+
+        singIn(email, password)
+        .then(result => {
+            console.log(result.user);
+        })
+        .catch(error => {
+            console.log(error.code)
+        })
     }
 
 
@@ -36,7 +47,7 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Login</button>
+                        <Link to='/'><button className="btn w-full btn-primary">Login</button></Link>
                     </div>
 
                     <p className="py-8 text-center">Dont’t Have An Account ? <NavLink to="/register" className="text-red-500">Register</NavLink></p>
