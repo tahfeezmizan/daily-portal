@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import Navbar from '../Shred/Navbar/Navbar';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
+    const { singIn } = useContext(AuthContext);
+    const navigate = useNavigate()
+    const location = useLocation();
+    console.log('Sing In Page Location', location)
 
-    const {singIn} = useContext(AuthContext);
- 
     const handleLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -14,14 +16,14 @@ const Login = () => {
         console.log(email, password);
 
         singIn(email, password)
-        .then(result => {
-            console.log(result.user);
-        })
-        .catch(error => {
-            console.log(error.code)
-        })
+            .then(result => {
+                console.log(result.user);
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.log(error.code)
+            })
     }
-
 
     return (
         <div>
@@ -47,7 +49,7 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <Link to='/'><button className="btn w-full btn-primary">Login</button></Link>
+                        <button type='submit' className="btn w-full btn-primary">Login</button>
                     </div>
 
                     <p className="py-8 text-center">Dont’t Have An Account ? <NavLink to="/register" className="text-red-500">Register</NavLink></p>
