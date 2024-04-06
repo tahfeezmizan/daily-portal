@@ -3,3 +3,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body[data-aos-delay='4000'] [data-aos],
+[data-aos][data-aos][data-aos-delay='4000'] {
+    transition-delay: 4000ms;
+}
